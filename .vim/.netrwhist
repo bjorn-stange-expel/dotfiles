@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/bjorn248/documents/Grooveshark/gitorius'
+let g:netrw_dirhist_2='/home/bjorn248/documents/Grooveshark/gitorius/panda-cave/lib/vendors/limonade'
+let g:netrw_dirhist_3='/Users/bstange/.vim'
