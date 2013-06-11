@@ -46,4 +46,4 @@ plugins=(git vi)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-  . `brew --prefix`/etc/profile.d/z.sh
+#  . `brew --prefix`/etc/profile.d/z.sh
