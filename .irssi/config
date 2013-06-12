@@ -23,7 +23,20 @@ servers = (
   { address = "irc.rizon.net"; chatnet = "Rizon"; port = "6667"; },
   { address = "irc.link-net.org"; chatnet = "LinkNet"; port = "6667"; },
   { address = "silc.silcnet.org"; chatnet = "SILC"; port = "706"; },
-  { address = "irc.bjornhd.com"; chatnet = "THF"; port = "6697"; use_ssl = "yes"; autoconnect = true }
+  {
+    address = "irc.bjornhd.com";
+    chatnet = "THF";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "true";
+  },
+  {
+    address = "mobirc.bjornhd.com";
+    chatnet = "Mobiquity";
+    port = "6697";
+    use_ssl = "yes";
+    autoconnect = "true";
+  }
 );
 
 chatnets = {
@@ -90,12 +103,19 @@ chatnets = {
   };
   SILC = { type = "SILC"; };
   THF = { type = "IRC"; };
+  Mobiquity = {
+    type = "IRC";
+    nick = "Bjorn";
+# add your own password here to automatically identify, then close the nickserv window
+    autosendcmd = "/msg nickserv identify ********; /window goto nickserv; /wc";
+  };
 };
 
 channels = (
   { name = "#irssi"; chatnet = "ircnet"; autojoin = "No"; },
   { name = "silc"; chatnet = "silc"; autojoin = "No"; },
-  { name = "#thf"; chatnet = "THF"; autojoin = "Yes"; }
+  { name = "#thf"; chatnet = "THF"; autojoin = "Yes"; },
+  { name = "#mobiquity"; chatnet = "Mobiquity"; autojoin = "Yes"; }
 );
 
 aliases = {
@@ -257,13 +277,16 @@ statusbar = {
         topicbarend = { priority = "100"; alignment = "right"; };
       };
     };
+    awl_0 = {
+      items = {
+        barstart = { priority = "100"; };
+        awl_0 = { };
+        barend = { priority = "100"; alignment = "right"; };
+      };
+    };
   };
 };
 settings = {
-  core = {
-    real_name = "Bjorn";
-    user_name = "Bjorn";
-    nick = "bjorn248";
-  };
+  core = { real_name = "Bjorn"; user_name = "Bjorn"; nick = "bjorn248"; };
   "fe-text" = { actlist_sort = "refnum"; };
 };
