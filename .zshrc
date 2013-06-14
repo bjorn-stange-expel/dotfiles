@@ -11,6 +11,7 @@ ZSH_THEME="agnoster"
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias cl="clear"
+alias lsf='ls -d -1 `pwd`/**/*'
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
