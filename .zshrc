@@ -1,4 +1,20 @@
 # Path to your oh-my-zsh configuration.
+#if [ "$TMUX" = "" ];
+#    then tmux;
+#else
+#    tmux attach -t $TMUX;
+#fi
+#
+
+#TMUX for remote servers
+#if [ "$PS1" != "" -a "${STARTED_TMUX:-x}" = x -a "${SSH_TTY:-x}" != x ]
+#then
+#        STARTED_TMUX=1; export STARTED_TMUX
+#        sleep 1
+#        ( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
+#        echo "tmux failed to start"
+#fi
+
 ZSH=$HOME/.oh-my-zsh
 
 # Set name of the theme to load.
@@ -47,4 +63,5 @@ plugins=(git vi)
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
-#  . `brew --prefix`/etc/profile.d/z.sh
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
