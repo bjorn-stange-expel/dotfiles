@@ -24,13 +24,14 @@ set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 set autoindent
-set smarttab            " smart tab handling for indenting
+" set smarttab            " smart tab handling for indenting
 set magic               " change the way backslashes are used in search patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 
 set tabstop=4           " number of spaces a tab counts for
+" set softtabstop=4		" something something
 set shiftwidth=4        " spaces for autoindents
-set expandtab           " turn a tabs into spaces
+" set expandtab           " turn a tabs into spaces
 
 " misc settings
 set fileformat=unix     " file mode is unix
@@ -78,15 +79,15 @@ if has("autocmd")
   autocmd BufEnter * lcd %:p:h
 
   " Put these in an autocmd group, so that we can delete them easily.
-  augroup mysettings
-    au BufReadPre,BufNewFile
-    \ *.xsl,*.xml,*.css,*.html,*.js,*.php,*.sql,*.sh,*.conf,*.cc,*.cpp,*.h
-    \  set smartindent expandtab
-
-    au BufReadPre,BufNewFile
-    \ *.tex
-    \ set wrap expandtab
-  augroup END
+"  augroup mysettings
+"    au BufReadPre,BufNewFile
+"    \ *.xsl,*.xml,*.css,*.html,*.js,*.php,*.sql,*.sh,*.conf,*.cc,*.cpp,*.h
+"    \  set smartindent expandtab
+"
+"    au BufReadPre,BufNewFile
+"    \ *.tex
+"    \ set wrap expandtab
+"  augroup END
 
   augroup perl
     " reset (disable previous 'augroup perl' settings)
@@ -118,3 +119,7 @@ if has("autocmd")
 endif " has("autocmd")
 
 let g:neocomplcache_enable_at_startup = 1
+
+execute pathogen#infect()
+
+let @i = 'vi{>'
