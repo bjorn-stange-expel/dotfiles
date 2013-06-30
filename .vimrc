@@ -120,6 +120,7 @@ endif " has("autocmd")
 
 let g:neocomplcache_enable_at_startup = 1
 
-execute pathogen#infect()
+" execute pathogen#infect()
 
 let @i = 'vi{>'
+let @c = 'I// '
