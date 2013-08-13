@@ -17,3 +17,4 @@ else
 	rm -rf ~/.zshrc
 	ln -s $pwdir/.zshrc ~/.zshrc
 fi
+echo "\n"
