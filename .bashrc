@@ -14,7 +14,7 @@ alias cl="clear"
 alias lsf='ls -d -1 `pwd`/**/*'
 alias lsd='du -sh *'
 alias ls='ls --color=auto'
-alias ll='ls -lash'
+alias lsa='ls -lash'
 alias tmux="TERM=screen-256color-bce tmux"
 
 PS1='[\u@\h \W]\$ '
