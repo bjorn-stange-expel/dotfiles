@@ -12,7 +12,7 @@ read -p "Remote Server?" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
 	rm -rf ~/.bashrc
-    ln -s $pwdir/.bashrc ~/.bashrc .
+    ln -s $pwdir/.bashrc ~/.bashrc
 else
 	rm -rf ~/.zshrc
 	ln -s $pwdir/.zshrc ~/.zshrc
