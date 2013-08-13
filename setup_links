@@ -1,11 +1,11 @@
 #!/bin/bash
-ln -s ~/.vimrc ./.vimrc
-ln -s ~/.vim ./.vim
+ln -s ./.vimrc ~/.vimrc
+ln -s ./.vim ~/.vim
 
 read -p "Remote Server?" -n 1 -r
 if [[ $REPLY =~ ^[Yy]$ ]]
 then
-    ln -s ~/.bashrc ./.bashrc
+    ln -s /.bashrc ~/.bashrc .
 else
-	ln -s ~/.zshrc ./.zshrc
+	ln -s ./.zshrc ~/.zshrc
 fi
