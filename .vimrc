@@ -65,6 +65,56 @@ imap <C-s> <Esc>:w<CR>i
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 cmap w!! w !sudo tee % >/dev/null
 map dsp %s/\s\+$//g
+" file type specific settings
+if has("autocmd")
+  " For debugging
+  "set verbose=9
+
+  " if bash is sh.
+  let bash_is_sh=1
+
+  " change to directory of current file automatically
+  autocmd BufEnter * lcd %:p:h
+
+  " Put these in an autocmd group, so that we can delete them easily.
+"  augroup mysettings
+"    au BufReadPre,BufNewFile
+"    \ *.xsl,*.xml,*.css,*.html,*.js,*.php,*.sql,*.sh,*.conf,*.cc,*.cpp,*.h
+"    \  set smartindent expandtab
+"
+"    au BufReadPre,BufNewFile
+"    \ *.tex
+"    \ set wrap expandtab
+"  augroup END
+
+  augroup perl
+    " reset (disable previous 'augroup perl' settings)
+    au!
+
+    au BufReadPre,BufNewFile
+    \ *.pl,*.pm
+    \ set formatoptions=croq smartindent cindent cinkeys='0{,0},!^F,o,O,e' " tags=./tags,tags,~/devel/tags,~/devel/C
+    " formatoption:
+    "   t - wrap text using textwidth
+    "   c - wrap comments using textwidth (and auto insert comment leader)
+    "   r - auto insert comment leader when pressing <return> in insert mode
+    "   o - auto insert comment leader when pressing 'o' or 'O'.
+    "   q - allow formatting of comments with "gq"
+    "   a - auto formatting for paragraphs
+    "   n - auto wrap numbered lists
+    "
+  augroup END
+
+
+  " Always jump to the last known cursor position.
+  " Don't do it when the position is invalid or when inside
+  " an event handler (happens when dropping a file on gvim).
+  autocmd BufReadPost *
+    \ if line("'\"") > 0 && line("'\"") <= line("$") |
+    \   exe "normal g`\"" |
+    \ endif
+
+endif " has("autocmd")
 
 let g:neocomplcache_enable_at_startup = 1
 
