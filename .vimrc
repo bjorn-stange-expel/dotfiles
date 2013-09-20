@@ -63,6 +63,7 @@ match BadWhitespace /\s\+$/
 map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
+nnoremap <Leader>g :s/\<<C-r><C-w>\>//g<Left><Left>
 cmap w!! w !sudo tee % >/dev/null
 map dsp %s/\s\+$//g
 " file type specific settings
@@ -120,3 +121,4 @@ let g:neocomplcache_enable_at_startup = 1
 
 let @i = 'vi{>'
 let @c = 'I// j'
+let @b = 'I# j'
