@@ -65,7 +65,7 @@ imap <C-s> <Esc>:w<CR>i
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>g :s/\<<C-r><C-w>\>//g<Left><Left>
 cmap w!! w !sudo tee % >/dev/null
-map dsp %s/\s\+$//g
+cmap dsp %s/\s\+$//g
 " file type specific settings
 if has("autocmd")
   " For debugging
