@@ -65,3 +65,12 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+
+function mkcd() {
+    mkdir $1
+    cd $1
+}
+
+function sha256 () {
+    echo -n $1 | openssl dgst -sha256  
+}
