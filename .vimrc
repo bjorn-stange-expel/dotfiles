@@ -30,7 +30,7 @@ set bs=indent,eol,start " Allow backspacing over everything in insert mode
 
 set tabstop=4           " number of spaces a tab counts for
 set shiftwidth=4        " spaces for autoindents
-" set expandtab           " turn a tabs into spaces
+set expandtab           " turn a tabs into spaces
 
 " misc settings
 set fileformat=unix     " file mode is unix
@@ -66,6 +66,18 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
 nnoremap <Leader>g :s/\<<C-r><C-w>\>//g<Left><Left>
 cmap w!! w !sudo tee % >/dev/null
 cmap dsp %s/\s\+$//g
+
+" window
+nmap <leader>sw<left>  :topleft  vnew<CR>
+nmap <leader>sw<right> :botright vnew<CR>
+nmap <leader>sw<up>    :topleft  new<CR>
+nmap <leader>sw<down>  :botright new<CR>
+" buffer
+nmap <leader>s<left>   :leftabove  vnew<CR>
+nmap <leader>s<right>  :rightbelow vnew<CR>
+nmap <leader>s<up>     :leftabove  new<CR>
+nmap <leader>s<down>   :rightbelow new<CR>
+
 " file type specific settings
 if has("autocmd")
   " For debugging
@@ -120,5 +132,11 @@ endif " has("autocmd")
 let g:neocomplcache_enable_at_startup = 1
 
 let @i = 'vi{>'
+let @d = 'vi(>'
 let @c = 'I// j'
 let @b = 'I# j'
+filetype off
+filetype plugin indent off
+set rtp+=$GOROOT/misc/vim
+filetype plugin indent on
+syntax on
