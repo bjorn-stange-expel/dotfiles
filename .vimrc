@@ -136,6 +136,7 @@ let @i = 'vi{>'
 let @d = 'vi(>'
 let @c = 'I// j'
 let @b = 'I# j'
+let @w = 'EBi"^[Ei<80>kr"^[EB'
 filetype off
 filetype plugin indent off
 set rtp+=$GOROOT/misc/vim
