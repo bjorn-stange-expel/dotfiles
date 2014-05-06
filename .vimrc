@@ -142,3 +142,4 @@ filetype plugin indent off
 set rtp+=$GOROOT/misc/vim
 filetype plugin indent on
 syntax on
+" demonstrating git
