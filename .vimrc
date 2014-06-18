@@ -133,7 +133,7 @@ endif " has("autocmd")
 let g:neocomplcache_enable_at_startup = 1
 
 let @i = 'f{vi{>'
-let @f = ':%s/^ \+//g:g/{/ norm @iggvi{>'
+let @f = ':%s/^ \+//g:g/{\(.*}\)\@!/ norm @iggvi{>'
 let @d = 'vi(>'
 let @c = 'I// j'
 let @b = 'I# j'
