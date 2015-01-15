@@ -3,9 +3,19 @@ if &compatible          " only if not set before:
   set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
 endif
 
+" Pathogen Load
+execute pathogen#infect()
+
+" neocomplcache load
+let g:neocomplcache_enable_at_startup = 1
+
+" Javascript Syntax Checking with eslint
+let g:syntastic_javascript_checkers = ['jshint']
+
 " display settings
 set t_Co=256
-colorscheme leo
+" colorscheme leo
+colorscheme spacegray
 set background=dark     " enable for dark terminals
 set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
@@ -41,10 +51,6 @@ set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo
 set hidden              " remember undo after quitting
 set history=50          " keep 50 lines of command history
 
-" set mouse=a             " use mouse in visual mode (not normal,insert,command,help mode
-
-" set term=builtin_ansi
-
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
 syntax on          " enable colors
@@ -79,68 +85,23 @@ nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
 
-" file type specific settings
-if has("autocmd")
-  " For debugging
-  "set verbose=9
-
-  " if bash is sh.
-  let bash_is_sh=1
-
-  " change to directory of current file automatically
-  autocmd BufEnter * lcd %:p:h
-
-  " Put these in an autocmd group, so that we can delete them easily.
-"  augroup mysettings
-"    au BufReadPre,BufNewFile
-"    \ *.xsl,*.xml,*.css,*.html,*.js,*.php,*.sql,*.sh,*.conf,*.cc,*.cpp,*.h
-"    \  set smartindent expandtab
-"
-"    au BufReadPre,BufNewFile
-"    \ *.tex
-"    \ set wrap expandtab
-"  augroup END
-
-  augroup perl
-    " reset (disable previous 'augroup perl' settings)
-    au!
-
-    au BufReadPre,BufNewFile
-    \ *.pl,*.pm
-    \ set formatoptions=croq smartindent cindent cinkeys='0{,0},!^F,o,O,e' " tags=./tags,tags,~/devel/tags,~/devel/C
-    " formatoption:
-    "   t - wrap text using textwidth
-    "   c - wrap comments using textwidth (and auto insert comment leader)
-    "   r - auto insert comment leader when pressing <return> in insert mode
-    "   o - auto insert comment leader when pressing 'o' or 'O'.
-    "   q - allow formatting of comments with "gq"
-    "   a - auto formatting for paragraphs
-    "   n - auto wrap numbered lists
-    "
-  augroup END
-
-
-  " Always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside
-  " an event handler (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
-
-endif " has("autocmd")
-
-let g:neocomplcache_enable_at_startup = 1
+syntax on
 
 let @i = 'f{vi{>'
 let @f = ':%s/^ \+//g:g/{\(.*}\)\@!/ norm @iggvi{>'
 let @d = 'vi(>'
-let @c = 'I// j'
-let @b = 'I# j'
+let @c = 'I// j'
+let @b = 'I# j'
 let @w = 'EBi"^[Ei<80>kr"^[EB'
-filetype off
-filetype plugin indent off
-set rtp+=$GOROOT/misc/vim
-filetype plugin indent on
-syntax on
-" demonstrating git
+
+" Make Backspaces Normal
+set backspace=indent,eol,start
+
+if has("autocmd")
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+  " ...
+endif

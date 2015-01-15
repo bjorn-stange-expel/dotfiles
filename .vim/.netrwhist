@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/Users/bjornstange/.vim'
+let g:netrw_dirhist_2='/Users/bjornstange/bin'
+let g:netrw_dirhist_3='/Users/bjornstange/.vim'
+let g:netrw_dirhist_4='/Users/bjornstange/.vim/colors'
+let g:netrw_dirhist_5='/Users/bjornstange/.vim'
+let g:netrw_dirhist_6='/Users/bjornstange/.vim/bundle'
+let g:netrw_dirhist_7='/Users/bjornstange/.vim'
+let g:netrw_dirhist_8='/Users/bjornstange'
