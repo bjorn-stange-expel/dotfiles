@@ -1,0 +1,9 @@
+[submodule "Spacegray.vim"]
+	path = .vim/bundle/Spacegray.vim
+	url = https://github.com/ajh17/Spacegray.vim.git
+[submodule "neocomplcache.vim"]
+	path = .vim/bundle/neocomplcache.vim
+	url = https://github.com/Shougo/neocomplcache.vim.git
+[submodule "syntastic"]
+	path = .vim/bundle/syntastic
+	url = https://github.com/scrooloose/syntastic.git
