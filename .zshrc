@@ -21,7 +21,7 @@ ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="avit"
+ZSH_THEME="agnoster"
 
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
@@ -72,5 +72,5 @@ function mkcd() {
 }
 
 function sha256 () {
-    echo -n $1 | openssl dgst -sha256  
+    echo -n $1 | openssl dgst -sha256
 }
