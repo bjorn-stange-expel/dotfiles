@@ -110,3 +110,5 @@ if has("autocmd")
   filetype plugin indent on
   " ...
 endif
+
+runtime macros/matchit.vim "required for vim-textobj-rubyblock
