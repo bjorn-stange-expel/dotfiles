@@ -8,3 +8,4 @@ rm -rf ~/.vim
 rm -rf ~/.vimrc
 
 ln -s ~/dotfiles/.vim* ~/
+ln -s ~/dotfiles/.gitconfig ~/
