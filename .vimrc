@@ -12,6 +12,9 @@ let g:neocomplcache_enable_at_startup = 1
 " Javascript Syntax Checking with eslint
 let g:syntastic_javascript_checkers = ['jshint']
 
+" Terraform format on write
+let g:terraform_fmt_on_save = 1
+
 " display settings
 set t_Co=256
 " colorscheme leo
