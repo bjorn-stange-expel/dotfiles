@@ -115,3 +115,5 @@ if has("autocmd")
 endif
 
 runtime macros/matchit.vim "required for vim-textobj-rubyblock
+
+" let g:airline_powerline_fonts = 1
