@@ -3,8 +3,44 @@ if &compatible          " only if not set before:
   set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
 endif
 
-" Pathogen Load
-execute pathogen#infect()
+" Plugins
+
+call plug#begin('~/.vim/plugged')
+
+" Spacegray Theme
+Plug 'https://github.com/ajh17/Spacegray.vim.git'
+
+" Syntastic
+Plug 'https://github.com/scrooloose/syntastic.git'
+
+" Rust Plugin
+Plug 'https://github.com/rust-lang/rust.vim.git'
+
+" Go Plugin
+Plug 'https://github.com/fatih/vim-go.git', { 'for': 'go' }
+
+" Ruby Blocks are real
+Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git', { 'for': 'ruby' }
+
+" Terraform
+Plug 'https://github.com/hashivim/vim-terraform.git', { 'for': 'tf' }
+
+Plug 'https://github.com/tpope/vim-fugitive.git'
+
+Plug 'https://github.com/vim-airline/vim-airline.git'
+
+Plug 'https://github.com/kana/vim-textobj-user.git'
+
+" TypeScript
+Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'xml' }
+
+" Only load this if running neovim
+if has("nvim")
+  " Deoplete
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+endif
+
+call plug#end()
 
 " Javascript Syntax Checking with jshint
 let g:syntastic_javascript_checkers = ['jshint']
@@ -121,7 +157,4 @@ let g:airline_powerline_fonts = 1
 if has("nvim")
   " load deoplete
   let g:deoplete#enable_at_startup = 1
-else
-  " load neocomplcache
-  let g:neocomplcache_enable_at_startup = 1
 endif
