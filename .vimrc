@@ -9,8 +9,11 @@ execute pathogen#infect()
 " neocomplcache load
 let g:neocomplcache_enable_at_startup = 1
 
-" Javascript Syntax Checking with eslint
+" Javascript Syntax Checking with jshint
 let g:syntastic_javascript_checkers = ['jshint']
+
+" TypeScript Syntax Checking with tslint
+let g:syntastic_typescript_checkers = ['tslint']
 
 " Terraform format on write
 let g:terraform_fmt_on_save = 1
