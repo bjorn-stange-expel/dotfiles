@@ -23,7 +23,7 @@ Plug 'https://github.com/fatih/vim-go.git', { 'for': 'go' }
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git', { 'for': 'ruby' }
 
 " Terraform
-Plug 'https://github.com/hashivim/vim-terraform.git', { 'for': 'tf' }
+Plug 'https://github.com/hashivim/vim-terraform.git', { 'for': 'terraform' }
 
 Plug 'https://github.com/tpope/vim-fugitive.git'
 
