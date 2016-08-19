@@ -6,9 +6,6 @@ endif
 " Pathogen Load
 execute pathogen#infect()
 
-" neocomplcache load
-let g:neocomplcache_enable_at_startup = 1
-
 " Javascript Syntax Checking with jshint
 let g:syntastic_javascript_checkers = ['jshint']
 
@@ -120,3 +117,11 @@ endif
 runtime macros/matchit.vim "required for vim-textobj-rubyblock
 
 let g:airline_powerline_fonts = 1
+
+if has("nvim")
+  " load deoplete
+  let g:deoplete#enable_at_startup = 1
+else
+  " load neocomplcache
+  let g:neocomplcache_enable_at_startup = 1
+endif
