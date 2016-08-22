@@ -32,7 +32,7 @@ Plug 'https://github.com/vim-airline/vim-airline.git'
 Plug 'https://github.com/kana/vim-textobj-user.git'
 
 " TypeScript
-Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'xml' }
+Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': [ 'xml', 'typescript' ] }
 
 " Only load this if running neovim
 if has("nvim")
