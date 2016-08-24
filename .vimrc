@@ -14,7 +14,7 @@ Plug 'https://github.com/ajh17/Spacegray.vim.git'
 Plug 'https://github.com/scrooloose/syntastic.git'
 
 " Rust Plugin
-Plug 'https://github.com/rust-lang/rust.vim.git'
+Plug 'https://github.com/rust-lang/rust.vim.git', { 'for': 'rust' }
 
 " Go Plugin
 Plug 'https://github.com/fatih/vim-go.git', { 'for': 'go' }
@@ -33,6 +33,9 @@ Plug 'https://github.com/kana/vim-textobj-user.git'
 
 " TypeScript
 Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'typescript' }
+
+" YAML
+Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 
 " Only load this if running neovim
 if has("nvim")
