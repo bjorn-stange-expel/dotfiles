@@ -160,4 +160,5 @@ let g:airline_powerline_fonts = 1
 if has("nvim")
   " load deoplete
   let g:deoplete#enable_at_startup = 1
+  let g:deoplete#enable_refresh_always = 1
 endif
