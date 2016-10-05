@@ -74,3 +74,5 @@ function mkcd() {
 function sha256 () {
     echo -n $1 | openssl dgst -sha256
 }
+
+. ~/z/z.sh

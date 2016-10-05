@@ -37,12 +37,6 @@ Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'typescript' 
 " YAML
 Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 
-" Only load this if running neovim
-if has("nvim")
-  " Deoplete
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
-
 call plug#end()
 
 " Javascript Syntax Checking with jshint
@@ -156,9 +150,3 @@ endif
 runtime macros/matchit.vim "required for vim-textobj-rubyblock
 
 let g:airline_powerline_fonts = 1
-
-if has("nvim")
-  " load deoplete
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_refresh_always = 1
-endif
