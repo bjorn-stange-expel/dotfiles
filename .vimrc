@@ -1,6 +1,6 @@
 " reset to vim-defaults
 if &compatible          " only if not set before:
-  set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
+    set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
 endif
 
 " Plugins
@@ -38,10 +38,10 @@ Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'typescript' 
 Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 
 " Only load this if running neovim
-if has("nvim")
-  " Deoplete
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-endif
+" if has("nvim")
+"   " Deoplete
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" endif
 
 call plug#end()
 
@@ -83,7 +83,7 @@ set bs=indent,eol,start " Allow backspacing over everything in insert mode
 set tabstop=4           " number of spaces a tab counts for
 set softtabstop=4
 set shiftwidth=4        " spaces for autoindents
-set expandtab           " turn a tabs into spaces
+set noexpandtab         " Use tabs, not spaces
 
 " misc settings
 set fileformat=unix     " file mode is unix
@@ -95,9 +95,9 @@ set history=50          " keep 50 lines of command history
 
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
-syntax on          " enable colors
-  set hlsearch       " highlight search (very useful!)
-  set incsearch      " search incremently (search while typing)
+    syntax on          " enable colors
+    set hlsearch       " highlight search (very useful!)
+    set incsearch      " search incremently (search while typing)
 endif
 
 " paste mode toggle (needed when using autoindent/smartindent)
@@ -145,20 +145,20 @@ let @w = 'EBi"^[Ei<80>kr"^[EB'
 set backspace=indent,eol,start
 
 if has("autocmd")
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-  " ...
+    " Enable file type detection.
+    " Use the default filetype settings, so that mail gets 'tw' set to 72,
+    " 'cindent' is on in C files, etc.
+    " Also load indent files, to automatically do language-dependent indenting.
+    filetype plugin indent on
+    " ...
 endif
 
 runtime macros/matchit.vim "required for vim-textobj-rubyblock
 
 let g:airline_powerline_fonts = 1
 
-if has("nvim")
-  " load deoplete
-  let g:deoplete#enable_at_startup = 1
-  let g:deoplete#enable_refresh_always = 1
-endif
+" if has("nvim")
+"   " load deoplete
+"   let g:deoplete#enable_at_startup = 1
+"   let g:deoplete#enable_refresh_always = 1
+" endif
