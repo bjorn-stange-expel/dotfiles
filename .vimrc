@@ -160,3 +160,7 @@ let g:airline_powerline_fonts = 1
 "   let g:deoplete#enable_at_startup = 1
 "   let g:deoplete#enable_refresh_always = 1
 " endif
+
+" Load project specific vimrc files
+set exrc
+set secure
