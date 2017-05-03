@@ -70,7 +70,7 @@ set wildmenu            " completion with menu
 set ls=2                " show filename at bottom
 
 " editor settings
-set esckeys             " map missed escape sequences (enables keypad keys)
+" set esckeys             " map missed escape sequences (enables keypad keys)
 set ignorecase          " case insensitive searching
 set smartcase           " but become case sensitive if you type uppercase characters
 set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
