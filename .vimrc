@@ -31,6 +31,9 @@ Plug 'https://github.com/vim-airline/vim-airline.git'
 
 Plug 'https://github.com/kana/vim-textobj-user.git'
 
+" resize-splits
+Plug 'justincampbell/vim-eighties'
+
 " TypeScript
 Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'typescript' }
 
@@ -52,6 +55,12 @@ let g:syntastic_typescript_checkers = ['tslint']
 
 " Terraform format on write
 let g:terraform_fmt_on_save = 1
+
+" vim-eighties
+let g:eighties_enabled = 1
+let g:eighties_minimum_width = 80
+let g:eighties_extra_width = 0 " Increase this if you want some extra room 
+let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 
 " display settings
 set t_Co=256
@@ -82,7 +91,7 @@ set bs=indent,eol,start " Allow backspacing over everything in insert mode
 set tabstop=4           " number of spaces a tab counts for
 set softtabstop=4
 set shiftwidth=4        " spaces for autoindents
-set noexpandtab         " Use tabs, not spaces
+set expandtab           " Use spaces not tabs
 
 " misc settings
 set fileformat=unix     " file mode is unix
@@ -91,6 +100,9 @@ set fileformat=unix     " file mode is unix
 set viminfo='20,\"500   " remember copy registers after quitting in the .viminfo file -- 20 jump links, regs up to 500 lines'
 set hidden              " remember undo after quitting
 set history=50          " keep 50 lines of command history
+
+" Disable mouse
+set mouse=
 
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
