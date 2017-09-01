@@ -6,6 +6,8 @@ git submodule update
 
 rm -rf ~/.vim
 rm -rf ~/.vimrc
+rm -rf ~/.zshrc
 
 ln -s ~/dotfiles/.vim* ~/
 ln -s ~/dotfiles/.gitconfig ~/
+ln -s ~/dotfiles/.zshrc ~/.zshrc
