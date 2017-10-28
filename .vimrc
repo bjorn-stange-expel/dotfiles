@@ -143,6 +143,13 @@ noremap <Down> <NOP>
 noremap <Left> <NOP>
 noremap <Right> <NOP>
 
+" Git specific configuration
+let git_path = system("git rev-parse --show-toplevel 2>/dev/null")
+let git_vimrc = substitute(git_path, '\n', '', '') . "/.vimrc"
+if !empty(glob(git_vimrc))
+    sandbox exec ":source " . git_vimrc
+endif
+
 syntax on
 
 let @i = 'f{vi{>'
