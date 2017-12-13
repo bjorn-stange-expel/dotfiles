@@ -66,6 +66,7 @@ source $ZSH/oh-my-zsh.sh
 # Customize to your needs...
 
 PATH=$HOME/bin:$PATH # Add Personal bin
+PATH=$HOME/go/bin:$PATH # Add Go bin
 PATH=/opt/chefdk/bin:$PATH # Add ChefDK
 PATH=$PATH:/Users/bstange/.chefdk/gem/ruby/2.4.0/bin # Add ChefDK Ruby Gems
 PATH=$PATH:/usr/local/sbin # Add /usr/local/sbin
