@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if branch=$(git symbolic-ref --short -q HEAD)
+then
+  echo on branch $branch
+  echo fetching...
+  git fetch -a
+  echo pulling...
+  git pull origin $branch
+else
+  echo not on any branch
+fi

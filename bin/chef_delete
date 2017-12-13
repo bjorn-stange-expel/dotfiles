@@ -1,0 +1,3 @@
+#!/bin/bash
+
+knife node delete $1 -y && knife client delete $1 -y

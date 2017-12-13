@@ -1,0 +1,13 @@
+#!/bin/bash
+retry="yes"
+while [ "$retry" = "yes" ]
+do
+    sleep 1
+    ssh $1 "echo hi"
+    if [ $? -eq 0 ]
+    then
+        retry="no"
+    else
+        echo "trying again"
+    fi
+done
