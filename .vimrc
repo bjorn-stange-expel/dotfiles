@@ -10,8 +10,14 @@ call plug#begin('~/.vim/plugged')
 " Spacegray Theme
 Plug 'https://github.com/ajh17/Spacegray.vim.git'
 
-" Syntastic
-Plug 'https://github.com/scrooloose/syntastic.git'
+" ALE
+Plug 'https://github.com/w0rp/ale.git'
+
+" Instant Markdown
+Plug 'https://github.com/suan/vim-instant-markdown.git'
+
+" Surround
+Plug 'https://github.com/tpope/vim-surround.git'
 
 " Rust Plugin
 Plug 'https://github.com/rust-lang/rust.vim.git', { 'for': 'rust' }
@@ -48,13 +54,15 @@ Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 call plug#end()
 
 " Javascript Syntax Checking with jshint
-let g:syntastic_javascript_checkers = ['jshint']
+" let g:syntastic_javascript_checkers = ['jshint']
 
 " TypeScript Syntax Checking with tslint
-let g:syntastic_typescript_checkers = ['tslint']
+" let g:syntastic_typescript_checkers = ['tslint']
 
 " Terraform format on write
 let g:terraform_fmt_on_save = 1
+
+let g:ale_terraform_tflint_executable = "~/bin/tflint"
 
 " vim-eighties
 let g:eighties_enabled = 1
@@ -137,6 +145,10 @@ nmap <leader>s<left>   :leftabove  vnew<CR>
 nmap <leader>s<right>  :rightbelow vnew<CR>
 nmap <leader>s<up>     :leftabove  new<CR>
 nmap <leader>s<down>   :rightbelow new<CR>
+
+" Jump to next linting error
+nmap <silent> <C-k> <Plug>(ale_previous_wrap)
+nmap <silent> <C-j> <Plug>(ale_next_wrap)
 " disable arrow keys
 noremap <Up> <NOP>
 noremap <Down> <NOP>
