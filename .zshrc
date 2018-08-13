@@ -70,6 +70,8 @@ PATH=$HOME/go/bin:$PATH # Add Go bin
 PATH=/opt/chefdk/bin:$PATH # Add ChefDK
 PATH=$PATH:/Users/bstange/.chefdk/gem/ruby/2.4.0/bin # Add ChefDK Ruby Gems
 PATH=$PATH:/usr/local/sbin # Add /usr/local/sbin
+PATH=$PATH:/Users/bstange/.nodejs/bin # Add local nodejs bin
+PATH=$PATH:/Users/bstange/Library/Python/3.6/bin # Add python bin
 
 function mkcd() {
     mkdir $1
@@ -83,3 +85,9 @@ function sha256 () {
 . ~/z/z.sh
 
 export GPG_TTY=$(tty)
+
+PATH="/Users/bstange/perl5/bin${PATH:+:${PATH}}"; export PATH;
+PERL5LIB="/Users/bstange/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
+PERL_LOCAL_LIB_ROOT="/Users/bstange/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
+PERL_MB_OPT="--install_base \"/Users/bstange/perl5\""; export PERL_MB_OPT;
+PERL_MM_OPT="INSTALL_BASE=/Users/bstange/perl5"; export PERL_MM_OPT;
