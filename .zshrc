@@ -73,6 +73,7 @@ PATH=$PATH:/usr/local/sbin # Add /usr/local/sbin
 PATH=$PATH:/Users/bstange/.nodejs/bin # Add local nodejs bin
 PATH=$PATH:/Users/bstange/Library/Python/3.6/bin # Add python bin
 PATH=$PATH:/Users/bstange/go/bin # Add Go bin
+PATH=/usr/local/opt/openssl/bin:$PATH # Add openssl bin
 
 function mkcd() {
     mkdir $1
