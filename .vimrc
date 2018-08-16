@@ -72,6 +72,8 @@ let g:eighties_minimum_width = 80
 let g:eighties_extra_width = 0 " Increase this if you want some extra room
 let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 
+set colorcolumn=100
+
 " display settings
 set t_Co=256
 set background=dark     " enable for dark terminals
