@@ -9,5 +9,6 @@ rm -rf ~/.vimrc
 rm -rf ~/.zshrc
 
 ln -s ~/dotfiles/.vim* ~/
+ln -s ~/dotfiles/.vimrc ~/.config/nvim/init.vim
 ln -s ~/dotfiles/.gitconfig ~/
 ln -s ~/dotfiles/.zshrc ~/.zshrc

@@ -7,8 +7,8 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
-" Spacegray Theme
-Plug 'https://github.com/ajh17/Spacegray.vim.git'
+" Afterglow Theme
+Plug 'https://github.com/danilo-augusto/vim-afterglow.git'
 
 " ALE
 Plug 'https://github.com/w0rp/ale.git'
@@ -53,6 +53,8 @@ Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 " endif
 call plug#end()
 
+colorscheme afterglow
+
 " Javascript Syntax Checking with jshint
 " let g:syntastic_javascript_checkers = ['jshint']
 
@@ -72,8 +74,6 @@ let g:eighties_compute = 1 " Disable this if you just want the minimum + extra
 
 " display settings
 set t_Co=256
-" colorscheme leo
-colorscheme spacegray
 set background=dark     " enable for dark terminals
 set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
@@ -125,9 +125,6 @@ map <F11> :set nopaste<CR>
 imap <F10> <C-O>:set paste<CR>
 imap <F11> <nop>
 set pastetoggle=<F11>
-highlight BadWhitespace ctermbg=red guibg=red
-match BadWhitespace /^\t\+/
-match BadWhitespace /\s\+$/
 map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
@@ -195,3 +192,7 @@ let g:airline_powerline_fonts = 1
 " Load project specific vimrc files
 set exrc
 set secure
+
+highlight BadWhitespace ctermbg=red guibg=red
+match BadWhitespace /^\t\+/
+match BadWhitespace /\s\+$/
