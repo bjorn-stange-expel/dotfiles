@@ -71,7 +71,6 @@ PATH=/opt/chefdk/bin:$PATH # Add ChefDK
 PATH=$PATH:/Users/bstange/.chefdk/gem/ruby/2.4.0/bin # Add ChefDK Ruby Gems
 PATH=$PATH:/usr/local/sbin # Add /usr/local/sbin
 PATH=$PATH:/Users/bstange/.nodejs/bin # Add local nodejs bin
-PATH=$PATH:/Users/bstange/Library/Python/3.6/bin # Add python bin
 PATH=$PATH:/Users/bstange/go/bin # Add Go bin
 PATH=/usr/local/opt/openssl/bin:$PATH # Add openssl bin
 

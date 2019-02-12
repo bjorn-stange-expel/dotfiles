@@ -46,6 +46,9 @@ Plug 'https://github.com/leafgarland/typescript-vim.git', { 'for': 'typescript' 
 " YAML
 Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 
+" Easy Align
+Plug 'junegunn/vim-easy-align'
+
 " Only load this if running neovim
 " if has("nvim")
 "   " Deoplete
@@ -80,6 +83,7 @@ set background=dark     " enable for dark terminals
 set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
 set number              " show line numbers
+set relativenumber      " show relative line numbers
 set showmatch           " show matching bracket (briefly jump)
 set showmode            " show mode in status bar (insert/replace/...)
 set showcmd             " show typed command in status bar
@@ -198,3 +202,9 @@ set secure
 highlight BadWhitespace ctermbg=red guibg=red
 match BadWhitespace /^\t\+/
 match BadWhitespace /\s\+$/
+
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
