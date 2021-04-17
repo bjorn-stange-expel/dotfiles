@@ -1,16 +1,13 @@
 [user]
     name = Bjorn Stange
     email = bstange@mobiquityinc.com
-	signingkey = 672A500FC93C9077
+	signingkey = C1B91E0776F6A7B1
 [core]
     editor = /usr/bin/vim
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [commit]
     gpgsign = true
-# Use below on OS X
-[gpg]
-    program = gpg2
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f

@@ -59,7 +59,7 @@ alias vim='nvim'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -71,8 +71,14 @@ PATH=/opt/chefdk/bin:$PATH # Add ChefDK
 PATH=$PATH:/Users/bstange/.chefdk/gem/ruby/2.4.0/bin # Add ChefDK Ruby Gems
 PATH=$PATH:/usr/local/sbin # Add /usr/local/sbin
 PATH=$PATH:/Users/bstange/.nodejs/bin # Add local nodejs bin
+PATH=$PATH:/Users/bstange/Library/Python/3.9/bin # Add user Python bin
 PATH=$PATH:/Users/bstange/go/bin # Add Go bin
 PATH=/usr/local/opt/openssl/bin:$PATH # Add openssl bin
+
+# Android Paths
+PATH=$PATH:/Users/bstange/Library/Android/sdk/platform-tools
+PATH=$PATH:/Users/bstange/Library/Android/sdk/cmdline-tools/latest/bin
+PATH=$PATH:/Users/bstange/Library/Android/sdk/emulator
 
 function mkcd() {
     mkdir $1
