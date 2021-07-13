@@ -1,6 +1,6 @@
 " reset to vim-defaults
 if &compatible          " only if not set before:
-    set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
+  set nocompatible      " use vim-defaults instead of vi-defaults (easier, more user friendly)
 endif
 
 " Plugins
@@ -102,9 +102,9 @@ set smarttab            " smart tab handling for indenting
 set magic               " change the way backslashes are used in search patterns
 set bs=indent,eol,start " Allow backspacing over everything in insert mode
 
-set tabstop=4           " number of spaces a tab counts for
-set softtabstop=4
-set shiftwidth=4        " spaces for autoindents
+set tabstop=2           " number of spaces a tab counts for
+set softtabstop=2
+set shiftwidth=2        " spaces for autoindents
 set expandtab           " Use spaces not tabs
 
 " misc settings
@@ -120,9 +120,9 @@ set mouse=
 
 " color settings (if terminal/gui supports it)
 if &t_Co > 2 || has("gui_running")
-    syntax on          " enable colors
-    set hlsearch       " highlight search (very useful!)
-    set incsearch      " search incremently (search while typing)
+  syntax on          " enable colors
+  set hlsearch       " highlight search (very useful!)
+  set incsearch      " search incremently (search while typing)
 endif
 
 " paste mode toggle (needed when using autoindent/smartindent)
@@ -162,7 +162,7 @@ noremap <Right> <NOP>
 let git_path = system("git rev-parse --show-toplevel 2>/dev/null")
 let git_vimrc = substitute(git_path, '\n', '', '') . "/.vimrc"
 if !empty(glob(git_vimrc))
-    sandbox exec ":source " . git_vimrc
+  sandbox exec ":source " . git_vimrc
 endif
 
 syntax on
@@ -173,17 +173,18 @@ let @d = 'vi(>'
 let @c = 'I// j'
 let @b = 'I# j'
 let @w = 'EBi"^[Ei<80>kr"^[EB'
+let @r = "0100lBi\<BS>\<CR>\"
 
 " Make Backspaces Normal
 set backspace=indent,eol,start
 
 if has("autocmd")
-    " Enable file type detection.
-    " Use the default filetype settings, so that mail gets 'tw' set to 72,
-    " 'cindent' is on in C files, etc.
-    " Also load indent files, to automatically do language-dependent indenting.
-    filetype plugin indent on
-    " ...
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  filetype plugin indent on
+  " ...
 endif
 
 runtime macros/matchit.vim "required for vim-textobj-rubyblock
@@ -208,3 +209,12 @@ xmap ga <Plug>(EasyAlign)
 
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
+
+let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'test']
+
+" Build/Test on save.
+augroup auto_go
+  autocmd!
+  autocmd BufWritePost *.go :GoBuild
+  autocmd BufWritePost *_test.go :GoTest
+augroup end

@@ -59,19 +59,19 @@ alias vim='nvim'
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git vi)
+plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 
 PATH=$HOME/bin:$PATH # Add Personal bin
-PATH=$HOME/go/bin:$PATH # Add Go bin
 PATH=/opt/chefdk/bin:$PATH # Add ChefDK
-PATH=$PATH:/Users/bstange/.chefdk/gem/ruby/2.4.0/bin # Add ChefDK Ruby Gems
+# PATH=$PATH:~/.chefdk/gem/ruby/2.4.0/bin # Add ChefDK Ruby Gems
 PATH=$PATH:/usr/local/sbin # Add /usr/local/sbin
-PATH=$PATH:/Users/bstange/.nodejs/bin # Add local nodejs bin
-PATH=$PATH:/Users/bstange/go/bin # Add Go bin
+PATH=$PATH:~/.npm/bin # Add local nodejs bin
+PATH=$PATH:/usr/local/go/bin # Add system Go bin
+PATH=$PATH:~/go/bin # Add user Go bin
 PATH=/usr/local/opt/openssl/bin:$PATH # Add openssl bin
 
 function mkcd() {
@@ -88,8 +88,6 @@ function sha256 () {
 export GPG_TTY=$(tty)
 export GOPATH=$HOME/go
 
-PATH="/Users/bstange/perl5/bin${PATH:+:${PATH}}"; export PATH;
-PERL5LIB="/Users/bstange/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"; export PERL5LIB;
-PERL_LOCAL_LIB_ROOT="/Users/bstange/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"; export PERL_LOCAL_LIB_ROOT;
-PERL_MB_OPT="--install_base \"/Users/bstange/perl5\""; export PERL_MB_OPT;
-PERL_MM_OPT="INSTALL_BASE=/Users/bstange/perl5"; export PERL_MM_OPT;
+go_test() {
+  go test $* | sed ''/PASS/s//$(printf "\033[32mPASS\033[0m")/'' | sed ''/SKIP/s//$(printf "\033[34mSKIP\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | sed ''/FAIL/s//$(printf "\033[31mFAIL\033[0m")/'' | GREP_COLOR="01;33" egrep --color=always '\s*[a-zA-Z0-9\-_.]+[:][0-9]+[:]|^'
+}
