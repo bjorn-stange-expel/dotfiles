@@ -1,7 +1,7 @@
 [user]
     name = Bjorn Stange
-    email = bstange@mobiquityinc.com
-	signingkey = C1B91E0776F6A7B1
+    email = bjorn248@gmail.com
+	signingkey = BF02F2946CE6FB83
 [core]
     editor = /usr/bin/vim
 [alias]
