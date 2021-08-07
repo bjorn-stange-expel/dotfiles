@@ -1,1 +1,0 @@
-['eword', 'match', 'tgroup', 'group', 'xtgroup', 'quash', 'nextgroup', 'gitrebaseHash', 'gitrebaseSummary', 'gitrebaseCommit', 'gitrebasePick', 'gitrebaseReword', 'gitrebaseEdit', 'gitrebaseSquash', 'gitrebaseFixup', 'gitrebaseComment', 'gitrebaseSquashError', 'contains', 'ixup']
