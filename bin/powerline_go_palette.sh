@@ -1,4 +1,4 @@
-#!/usr/bin/zsh
+#!/usr/bin/env zsh
 
 # This script iterates through all possible colors for a powerline go theme attribute
 # This might be useful for customizing your powerline go theme, since the color values are
@@ -46,16 +46,33 @@ echo "Backing up theme file..."
 
 cp "$theme_file" "$theme_file".backup
 
+osx=0
+
+OS=$(uname)
+if [ "$OS" = 'Darwin' ]; then
+  if ! command -v gsed &> /dev/null
+  then
+    echo "gsed is not installed, please install it with"
+    echo "brew install gnu-sed"
+    exit 1
+  fi
+  osx=1
+fi
+
 for i in {0..255}
 do
   # TODO Check the behavior on OSX...might have to check uname and switch to gsed on Mac. So far
   # this has only been tested on Linux
-   sed -ri 's,('"$attribute_name"')": [0-9]+,\1": '"$i"',' "$theme_file"
-   # You might have to change the below line to match your powerline_precmd function defined in your
-   # zshrc
-   PS1="$($GOPATH/bin/powerline-go -theme ~/.config/powerline-go/themes/custom.json -modules cwd,git,kube,exit -error $? -jobs ${${(%):%j}:-0})"
-   print -P "$PS1" # https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html
-   echo $i
+  if [ "$osx" = 1 ]; then
+    gsed -ri 's,('"$attribute_name"')": [0-9]+,\1": '"$i"',' "$theme_file"
+  else
+    sed -ri 's,('"$attribute_name"')": [0-9]+,\1": '"$i"',' "$theme_file"
+  fi
+  # You might have to change the below line to match your powerline_precmd function defined in your
+  # zshrc
+  PS1="$($GOPATH/bin/powerline-go -theme ~/.config/powerline-go/themes/custom.json -modules kube,cwd,git,exit -error $? -jobs ${${(%):%j}:-0})"
+  print -P "$PS1" # https://zsh.sourceforge.io/Doc/Release/Shell-Builtin-Commands.html
+  echo $i
 done
 
 echo "Restoring theme file from backup"
