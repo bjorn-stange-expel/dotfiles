@@ -1,15 +1,39 @@
 [user]
-    name = Bjorn Stange
-    email = bjorn248@gmail.com
-	signingkey = BF02F2946CE6FB83
+  name = Bjorn Stange
+  email = bjorn.stange@expel.io
+  signingkey = B7D88E583A15AA32
 [core]
-    editor = /usr/bin/vim
+  editor = /usr/local/bin/nvim
 [alias]
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
+  lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --
 [commit]
-    gpgsign = true
+  gpgsign = true
 [filter "lfs"]
-	clean = git-lfs clean -- %f
-	smudge = git-lfs smudge -- %f
-	process = git-lfs filter-process
-	required = true
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+[url "ssh://git@github.com/"]
+  insteadOf = https://github.com/
+
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[delta]
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = Monokai Extended
+  navigate = true
+  line-numbers = true
+  hunk-header-style = omit
+  file-style = yellow
+
+# [interactive]
+#   diffFilter = delta --color-only --hunk-header-style omit
+[init]
+	defaultBranch = main
+[pull]
+	rebase = true

@@ -14,7 +14,9 @@ Plug 'https://github.com/danilo-augusto/vim-afterglow.git'
 Plug 'https://github.com/w0rp/ale.git'
 
 " Instant Markdown
-Plug 'https://github.com/suan/vim-instant-markdown.git'
+" Plug 'https://github.com/suan/vim-instant-markdown.git'
+
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
 
 " Surround
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -48,6 +50,18 @@ Plug 'https://github.com/chase/vim-ansible-yaml.git', { 'for': 'yaml' }
 
 " Easy Align
 Plug 'junegunn/vim-easy-align'
+
+" vim-hcl
+Plug 'https://github.com/jvirtanen/vim-hcl.git'
+
+" jsonnet
+Plug 'google/vim-jsonnet'
+
+" jinja2
+Plug 'https://github.com/Glench/Vim-Jinja2-Syntax.git'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " Only load this if running neovim
 " if has("nvim")
@@ -92,6 +106,10 @@ set title               " show file in titlebar
 set wildmenu            " completion with menu
 set ls=2                " show filename at bottom
 
+set cursorline
+highlight clear CursorLine
+highligh CursorLineNR ctermfg=148
+
 " editor settings
 " set esckeys             " map missed escape sequences (enables keypad keys)
 set ignorecase          " case insensitive searching
@@ -133,21 +151,28 @@ imap <F11> <nop>
 set pastetoggle=<F11>
 map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
-nnoremap <Leader>s :%s/\<<C-r><C-w>\>//g<Left><Left>
-nnoremap <Leader>g :s/\<<C-r><C-w>\>//g<Left><Left>
 cmap w!! w !sudo tee % >/dev/null
 cmap dsp %s/\s\+$//g
 
-" window
-nmap <leader>sw<left>  :topleft  vnew<CR>
-nmap <leader>sw<right> :botright vnew<CR>
-nmap <leader>sw<up>    :topleft  new<CR>
-nmap <leader>sw<down>  :botright new<CR>
-" buffer
-nmap <leader>s<left>   :leftabove  vnew<CR>
-nmap <leader>s<right>  :rightbelow vnew<CR>
-nmap <leader>s<up>     :leftabove  new<CR>
-nmap <leader>s<down>   :rightbelow new<CR>
+" open file with fzf
+nmap <leader>f :Files<CR>
+
+" search with ripgrep
+nmap <leader>s :Rg <C-r>"<CR>
+
+" git co-author lines
+nmap <leader>gda oCo-authored-by: David Montoya <david.montoya@expel.io><esc>
+nmap <leader>gdo oCo-authored-by: Doug McCall <doug.mccall@expel.io><esc>
+nmap <leader>ge oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
+nmap <leader>gi oCo-authored-by: Ismail Ahmad <ismail.ahmad@expel.com><esc>
+nmap <leader>gjes oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
+nmap <leader>gl oCo-authored-by: Luke Jolly <luke.jolly@expel.io><esc>
+nmap <leader>gp oCo-authored-by: Peter Herndon <peter.herndon@expel.io><esc>
+nmap <leader>gr oCo-authored-by: Robert Kernick <robert.kernick@expel.com><esc>
+nmap <leader>gc oCo-authored-by: Caleb Hyde <caleb.hyde@expel.io><esc>
+nmap <leader>gjo oCo-authored-by: Jory Garrido <jory.garrido@expel.io><esc>
+nmap <leader>gk oCo-authored-by: Keith Grant <keith.grant@expel.io><esc>
+nmap <leader>gjer oCo-authored-by: Jeremy Whittemore <jeremy.whittemore@expel.io><esc>
 
 " Jump to next linting error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -167,13 +192,15 @@ endif
 
 syntax on
 
-let @i = 'f{vi{>'
+let @i = 'ofluxcd.io/ignore: "true"'
 let @f = ':%s/^ \+//g:g/{\(.*}\)\@!/ norm @iggvi{>'
 let @d = 'vi(>'
 let @c = 'I// j'
 let @b = 'I# j'
 let @w = 'EBi"^[Ei<80>kr"^[EB'
 let @r = "0100lBi\<BS>\<CR>\"
+
+let @g = 'oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io>'
 
 " Make Backspaces Normal
 set backspace=indent,eol,start
@@ -210,11 +237,40 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'test']
+let g:go_highlight_structs = 0
+let g:go_highlight_interfaces = 0
+let g:go_highlight_operators = 0
+
+" let g:go_metalinter_autosave_enabled = ['vet', 'golint', 'test']
 
 " Build/Test on save.
-augroup auto_go
-  autocmd!
-  autocmd BufWritePost *.go :GoBuild
-  autocmd BufWritePost *_test.go :GoTest
-augroup end
+" augroup auto_go
+"   autocmd!
+"   autocmd BufWritePost *.go :GoBuild
+"   autocmd BufWritePost *_test.go :GoTest
+" augroup end
+"
+autocmd BufNewFile,BufRead *.pack set filetype=hcl
+autocmd BufNewFile,BufRead Brewfile set filetype=ruby
+
+map Y yy
+
+set grepprg=rg\ --vimgrep\ --smart-case
+
+" markdown-preview settings
+let g:mkdp_auto_start = 1
+let g:mkdp_auto_close = 1
+let g:mkdp_preview_options = {
+    \ 'mkit': {},
+    \ 'katex': {},
+    \ 'uml': {},
+    \ 'maid': {},
+    \ 'disable_sync_scroll': 0,
+    \ 'sync_scroll_type': 'middle',
+    \ 'hide_yaml_meta': 1,
+    \ 'sequence_diagrams': {},
+    \ 'flowchart_diagrams': {},
+    \ 'content_editable': v:false,
+    \ 'disable_filename': 0,
+    \ 'toc': {}
+    \ }
