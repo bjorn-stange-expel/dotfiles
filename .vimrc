@@ -83,6 +83,9 @@ let g:terraform_fmt_on_save = 1
 
 let g:ale_terraform_tflint_executable = "~/bin/tflint"
 
+" Ignore max line length check for python
+let g:ale_python_flake8_options = "--ignore=E501"
+
 " vim-eighties
 let g:eighties_enabled = 1
 let g:eighties_minimum_width = 80
@@ -158,21 +161,20 @@ cmap dsp %s/\s\+$//g
 nmap <leader>f :Files<CR>
 
 " search with ripgrep
-nmap <leader>s :Rg <C-r>"<CR>
+nmap <leader>s :Rg <C-r><C-w><CR>
 
 " git co-author lines
 nmap <leader>gda oCo-authored-by: David Montoya <david.montoya@expel.io><esc>
 nmap <leader>gdo oCo-authored-by: Doug McCall <doug.mccall@expel.io><esc>
 nmap <leader>ge oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
 nmap <leader>gi oCo-authored-by: Ismail Ahmad <ismail.ahmad@expel.com><esc>
-nmap <leader>gjes oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
+nmap <leader>gje oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
 nmap <leader>gl oCo-authored-by: Luke Jolly <luke.jolly@expel.io><esc>
 nmap <leader>gp oCo-authored-by: Peter Herndon <peter.herndon@expel.io><esc>
 nmap <leader>gr oCo-authored-by: Robert Kernick <robert.kernick@expel.com><esc>
 nmap <leader>gc oCo-authored-by: Caleb Hyde <caleb.hyde@expel.io><esc>
 nmap <leader>gjo oCo-authored-by: Jory Garrido <jory.garrido@expel.io><esc>
 nmap <leader>gk oCo-authored-by: Keith Grant <keith.grant@expel.io><esc>
-nmap <leader>gjer oCo-authored-by: Jeremy Whittemore <jeremy.whittemore@expel.io><esc>
 
 " Jump to next linting error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -258,7 +260,7 @@ map Y yy
 set grepprg=rg\ --vimgrep\ --smart-case
 
 " markdown-preview settings
-let g:mkdp_auto_start = 1
+let g:mkdp_auto_start = 0
 let g:mkdp_auto_close = 1
 let g:mkdp_preview_options = {
     \ 'mkit': {},
@@ -274,3 +276,5 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0,
     \ 'toc': {}
     \ }
+
+" set foldmethod=indent
