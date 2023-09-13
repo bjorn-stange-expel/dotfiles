@@ -166,13 +166,15 @@ nmap <leader>s :Rg <C-r><C-w><CR>
 " git co-author lines
 nmap <leader>gda oCo-authored-by: David Montoya <david.montoya@expel.io><esc>
 nmap <leader>gdo oCo-authored-by: Doug McCall <doug.mccall@expel.io><esc>
-nmap <leader>ge oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
+nmap <leader>get oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
+nmap <leader>gev oCo-authored-by: Evan Benoit <evan.benoit@expel.io><esc>
 nmap <leader>gi oCo-authored-by: Ismail Ahmad <ismail.ahmad@expel.com><esc>
 nmap <leader>gje oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
 nmap <leader>gl oCo-authored-by: Luke Jolly <luke.jolly@expel.io><esc>
 nmap <leader>gp oCo-authored-by: Peter Herndon <peter.herndon@expel.io><esc>
 nmap <leader>gr oCo-authored-by: Robert Kernick <robert.kernick@expel.com><esc>
-nmap <leader>gc oCo-authored-by: Caleb Hyde <caleb.hyde@expel.io><esc>
+nmap <leader>gca oCo-authored-by: Caleb Hyde <caleb.hyde@expel.io><esc>
+nmap <leader>gcu oCo-authored-by: Char Custodio <char.custodio@expel.io><esc>
 nmap <leader>gjo oCo-authored-by: Jory Garrido <jory.garrido@expel.io><esc>
 nmap <leader>gk oCo-authored-by: Keith Grant <keith.grant@expel.io><esc>
 
