@@ -164,6 +164,7 @@ nmap <leader>f :Files<CR>
 nmap <leader>s :Rg <C-r><C-w><CR>
 
 " git co-author lines
+nmap <leader>ga oCo-authored-by: Adam Glenn <adam.glenn@expel.io><esc>
 nmap <leader>gda oCo-authored-by: David Montoya <david.montoya@expel.io><esc>
 nmap <leader>gdo oCo-authored-by: Doug McCall <doug.mccall@expel.io><esc>
 nmap <leader>get oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
@@ -177,6 +178,11 @@ nmap <leader>gca oCo-authored-by: Caleb Hyde <caleb.hyde@expel.io><esc>
 nmap <leader>gcu oCo-authored-by: Char Custodio <char.custodio@expel.io><esc>
 nmap <leader>gjo oCo-authored-by: Jory Garrido <jory.garrido@expel.io><esc>
 nmap <leader>gk oCo-authored-by: Keith Grant <keith.grant@expel.io><esc>
+nmap <leader>gs oCo-authored-by: Sarah Keller <sarah.keller@expel.io><esc>
+nmap <leader>gt oCo-authored-by: Trevor Ackerman <trevor.ackerman@expel.io><esc>
+nmap <leader>gb oCo-authored-by: Brian Leung <brian.leung@expel.com><esc>
+nmap <leader>gjd oCo-authored-by: Juan Diego Bonilla <juandiego.bonilla@expel.com><esc>
+nmap <leader>gm oCo-authored-by: Mohamed Abdel Latif <mohamed.abdellatif@expel.com><esc>
 
 " Jump to next linting error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)

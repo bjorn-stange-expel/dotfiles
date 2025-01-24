@@ -183,8 +183,12 @@ export KUBE_CONFIG_PATH=$HOME/.kube/config
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export VAULT_TEAM=eng-cep
 
-source ~/expel/workbench_token_grabber/get_workbench_token.sh
-
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export HOMEBREW_NO_AUTO_UPDATE=1
+export HISTTIMEFORMAT="%F %T "
+
+# AWS
+export PATH="$PATH:$HOME/aws/aws-cli"
+
+export AWS_PAGER=""
