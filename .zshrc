@@ -192,3 +192,5 @@ export HISTTIMEFORMAT="%F %T "
 export PATH="$PATH:$HOME/aws/aws-cli"
 
 export AWS_PAGER=""
+
+export TERM="xterm-256color"
