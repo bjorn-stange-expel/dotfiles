@@ -35,7 +35,11 @@ Plug 'https://github.com/hashivim/vim-terraform.git', { 'for': 'terraform' }
 
 Plug 'https://github.com/tpope/vim-fugitive.git'
 
-Plug 'https://github.com/vim-airline/vim-airline.git'
+" Plug 'https://github.com/vim-airline/vim-airline.git'
+
+" Plug 'feline-nvim/feline.nvim'
+
+Plug 'echasnovski/mini.nvim', { 'branch': 'stable' }
 
 Plug 'https://github.com/kana/vim-textobj-user.git'
 
@@ -100,7 +104,7 @@ set background=dark     " enable for dark terminals
 set nowrap              " dont wrap lines
 set scrolloff=2         " 2 lines above/below cursor when scrolling
 set number              " show line numbers
-set relativenumber      " show relative line numbers
+" set relativenumber      " show relative line numbers
 set showmatch           " show matching bracket (briefly jump)
 set showmode            " show mode in status bar (insert/replace/...)
 set showcmd             " show typed command in status bar
@@ -108,6 +112,8 @@ set ruler               " show cursor position in status bar
 set title               " show file in titlebar
 set wildmenu            " completion with menu
 set ls=2                " show filename at bottom
+
+set termguicolors
 
 set cursorline
 highlight clear CursorLine
@@ -151,7 +157,7 @@ map <F10> :set paste<CR>
 map <F11> :set nopaste<CR>
 imap <F10> <C-O>:set paste<CR>
 imap <F11> <nop>
-set pastetoggle=<F11>
+" set pastetoggle=<F11>
 map <C-s> :w<CR>
 imap <C-s> <Esc>:w<CR>i
 cmap w!! w !sudo tee % >/dev/null
@@ -168,13 +174,10 @@ nmap <leader>ga oCo-authored-by: Adam Glenn <adam.glenn@expel.io><esc>
 nmap <leader>gda oCo-authored-by: David Montoya <david.montoya@expel.io><esc>
 nmap <leader>gdo oCo-authored-by: Doug McCall <doug.mccall@expel.io><esc>
 nmap <leader>get oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
-nmap <leader>gev oCo-authored-by: Evan Benoit <evan.benoit@expel.io><esc>
 nmap <leader>gi oCo-authored-by: Ismail Ahmad <ismail.ahmad@expel.com><esc>
 nmap <leader>gje oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
-nmap <leader>gl oCo-authored-by: Luke Jolly <luke.jolly@expel.io><esc>
 nmap <leader>gp oCo-authored-by: Peter Herndon <peter.herndon@expel.io><esc>
 nmap <leader>gr oCo-authored-by: Robert Kernick <robert.kernick@expel.com><esc>
-nmap <leader>gca oCo-authored-by: Caleb Hyde <caleb.hyde@expel.io><esc>
 nmap <leader>gcu oCo-authored-by: Char Custodio <char.custodio@expel.io><esc>
 nmap <leader>gjo oCo-authored-by: Jory Garrido <jory.garrido@expel.io><esc>
 nmap <leader>gk oCo-authored-by: Keith Grant <keith.grant@expel.io><esc>
@@ -183,6 +186,18 @@ nmap <leader>gt oCo-authored-by: Trevor Ackerman <trevor.ackerman@expel.io><esc>
 nmap <leader>gb oCo-authored-by: Brian Leung <brian.leung@expel.com><esc>
 nmap <leader>gjd oCo-authored-by: Juan Diego Bonilla <juandiego.bonilla@expel.com><esc>
 nmap <leader>gm oCo-authored-by: Mohamed Abdel Latif <mohamed.abdellatif@expel.com><esc>
+nmap <leader>map imig7GMC9ANK62<esc>
+
+nmap <leader>1 1gt
+nmap <leader>2 2gt
+nmap <leader>3 3gt
+nmap <leader>4 4gt
+nmap <leader>5 5gt
+nmap <leader>6 6gt
+nmap <leader>7 7gt
+nmap <leader>8 8gt
+nmap <leader>9 9gt
+nmap <leader>0 0gt
 
 " Jump to next linting error
 nmap <silent> <C-k> <Plug>(ale_previous_wrap)
@@ -232,6 +247,7 @@ let g:airline_powerline_fonts = 1
 "   let g:deoplete#enable_at_startup = 1
 "   let g:deoplete#enable_refresh_always = 1
 " endif
+
 
 " Load project specific vimrc files
 set exrc

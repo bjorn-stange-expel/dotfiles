@@ -90,6 +90,8 @@ PATH=$HOME/bin/go/bin:$PATH # Add go 1.18 override
 PATH=/usr/local/opt/openssl/bin:$PATH # Add openssl bin
 # PATH=/usr/local/opt/curl/bin:$PATH # Add curl bin
 
+PATH=/usr/local/sessionmanagerplugin/bin:$PATH # Add openssl bin
+
 # krew
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
@@ -113,6 +115,7 @@ go_test() {
 
 function powerline_precmd() {
   PS1="$($GOPATH/bin/powerline-go -theme ~/.config/powerline-go/themes/custom.json -modules kube,cwd,git,exit -error $? -jobs ${${(%):%j}:-0})"
+  # PS1="$($GOPATH/bin/powerline-go -theme ~/.config/powerline-go/themes/custom.json -modules cwd,git,exit -error $? -jobs ${${(%):%j}:-0})"
 
     # Uncomment the following line to automatically clear errors after showing
     # them once. This not only clears the error for powerline-go, but also for
@@ -180,7 +183,10 @@ ksecret() {
 
 export KUBE_CONFIG_PATH=$HOME/.kube/config
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh OLD fzf import
+
+source <(fzf --zsh)
+
 export VAULT_TEAM=eng-cep
 
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
@@ -194,3 +200,7 @@ export PATH="$PATH:$HOME/aws/aws-cli"
 export AWS_PAGER=""
 
 export TERM="xterm-256color"
+
+export HISTSIZE=200000
+setopt HIST_IGNORE_SPACE
+export SAVEHIST=100000
