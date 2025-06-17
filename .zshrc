@@ -1,21 +1,4 @@
-# zmodload zsh/zprof
-
-# Path to your oh-my-zsh configuration.
-#if [ "$TMUX" = "" ];
-#    then tmux;
-#else
-#    tmux attach -t $TMUX;
-#fi
-#
-
-#TMUX for remote servers
-#if [ "$PS1" != "" -a "${STARTED_TMUX:-x}" = x -a "${SSH_TTY:-x}" != x ]
-#then
-#        STARTED_TMUX=1; export STARTED_TMUX
-#        sleep 1
-#        ( (tmux has-session -t remote && tmux attach-session -t remote) || (tmux new-session -s remote) ) && exit 0
-#        echo "tmux failed to start"
-#fi
+export PATH=$PATH:$HOME/homebrew/bin
 
 ZSH=$HOME/.oh-my-zsh
 
@@ -36,39 +19,16 @@ alias batj='bat -l json'
 
 alias ls='ls -G'
 alias kuberuhroh='kubectl get pods --all-namespaces -owide | grep -vE "Running|Completed|Error|Shutdown"'
-# Let's see if it's really a drop-in replacement
-# alias docker='podman'
-
-# Set to this to use case-sensitive completion
-# CASE_SENSITIVE="true"
-
-# Comment this out to disable bi-weekly auto-update checks
-# DISABLE_AUTO_UPDATE="true"
-
-# Uncomment to change how often before auto-updates occur? (in days)
-# export UPDATE_ZSH_DAYS=13
-
-# Uncomment following line if you want to disable colors in ls
-# DISABLE_LS_COLORS="true"
-
-# Uncomment following line if you want to disable autosetting terminal title.
-# DISABLE_AUTO_TITLE="true"
-
-# Uncomment following line if you want to disable command autocorrection
-# DISABLE_CORRECTION="true"
-
-# Uncomment following line if you want red dots to be displayed while waiting for completion
-# COMPLETION_WAITING_DOTS="true"
-
-# Uncomment following line if you want to disable marking untracked files under
-# VCS as dirty. This makes repository status check for large repositories much,
-# much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
-
-# Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-# Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git kubectl docker)
+
+alias k='kubectl $@'
+alias ka='kubectl get --all-namespaces $@'
+alias tf='terraform $@'
+alias kprod='k --context=gke_expel-engineering-prod_us-east1_prod $@'
+alias kstage='k --context=gke_expel-engineering-internal_us-east1_staging $@'
+
+alias tpprod="tsh --proxy=teleport.opsv2.expel.io --user $FIRSTNAME.$LASTNAME --login $FIRSTNAME.$LASTNAME"
+alias tpstaging="tsh --proxy=teleport.stagingv2.expel.io --user $FIRSTNAME.$LASTNAME --login $FIRSTNAME.$LASTNAME"
 
 source $ZSH/oh-my-zsh.sh
 
@@ -95,6 +55,10 @@ PATH=/usr/local/sessionmanagerplugin/bin:$PATH # Add openssl bin
 # krew
 PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
+# linkerd
+export PATH=$HOME/.linkerd2/bin:$PATH
+
+
 function mkcd() {
   mkdir $1
   cd $1
@@ -114,7 +78,7 @@ go_test() {
 }
 
 function powerline_precmd() {
-  PS1="$($GOPATH/bin/powerline-go -theme ~/.config/powerline-go/themes/custom.json -modules kube,cwd,git,exit -error $? -jobs ${${(%):%j}:-0})"
+  PS1="$($HOME/bin/powerline-go -theme ~/dotfiles/custom.json -modules kube,cwd,git,exit -error $? -jobs ${${(%):%j}:-0})"
   # PS1="$($GOPATH/bin/powerline-go -theme ~/.config/powerline-go/themes/custom.json -modules cwd,git,exit -error $? -jobs ${${(%):%j}:-0})"
 
     # Uncomment the following line to automatically clear errors after showing
@@ -134,22 +98,12 @@ function install_powerline_precmd() {
   precmd_functions+=(powerline_precmd)
 }
 
-if [ "$TERM" != "linux" ] && [ -f "$GOPATH/bin/powerline-go" ]; then
+if [ "$TERM" != "linux" ] && [ -f "$HOME/bin/powerline-go" ]; then
   install_powerline_precmd
 fi
 # Firstname Lastname
 export FIRSTNAME='bjorn'
 export LASTNAME='stange'
-
-# Expel config
-source /Users/bjornstange/.config/.expelrc
-
-
-# The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/bjornstange/.google-cloud-sdk/google-cloud-sdk/path.zsh.inc' ]; then . '/Users/bjornstange/.google-cloud-sdk/google-cloud-sdk/path.zsh.inc'; fi
-
-# The next line enables shell command completion for gcloud.
-if [ -f '/Users/bjornstange/.google-cloud-sdk/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/bjornstange/.google-cloud-sdk/google-cloud-sdk/completion.zsh.inc'; fi
 
 source ~/expel/cep-tools/bash_funcs/source_all
 
@@ -165,7 +119,7 @@ export PATH="$GOENV_ROOT/bin:$PATH"
 # eval "$(goenv init -)"
 
 # set EDITOR to nvim
-export EDITOR=/usr/local/bin/nvim
+export EDITOR=$HOME/homebrew/bin/nvim
 
 timezsh() {
   shell=${1-$SHELL}
@@ -201,6 +155,13 @@ export AWS_PAGER=""
 
 export TERM="xterm-256color"
 
-export HISTSIZE=200000
+# export HISTSIZE=200000
 setopt HIST_IGNORE_SPACE
-export SAVEHIST=100000
+# export SAVEHIST=100000
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f "/Users/bjorn/google-cloud-sdk/path.zsh.inc" ]; then . "/Users/bjorn/google-cloud-sdk/path.zsh.inc"; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f "/Users/bjorn/google-cloud-sdk/completion.zsh.inc" ]; then . "/Users/bjorn/google-cloud-sdk/completion.zsh.inc"; fi
+
+export CLOUDSDK_PYTHON=$HOME/homebrew/bin/python3.12

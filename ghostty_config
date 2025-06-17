@@ -16,3 +16,6 @@ shell-integration-features = no-cursor
 keybind = cmd+shift+left_bracket=text:\x02p
 keybind = cmd+shift+right_bracket=text:\x02n
 keybind = cmd+comma=text:\x02\x2c
+
+# 256 MB
+scrollback-limit = 268435456
