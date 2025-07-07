@@ -16,7 +16,7 @@ Plug 'https://github.com/w0rp/ale.git'
 " Instant Markdown
 " Plug 'https://github.com/suan/vim-instant-markdown.git'
 
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install' }
+Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && npx --yes yarn install'}
 
 " Surround
 Plug 'https://github.com/tpope/vim-surround.git'
@@ -25,7 +25,7 @@ Plug 'https://github.com/tpope/vim-surround.git'
 Plug 'https://github.com/rust-lang/rust.vim.git', { 'for': 'rust' }
 
 " Go Plugin
-Plug 'https://github.com/fatih/vim-go.git', { 'for': 'go' }
+Plug 'https://github.com/fatih/vim-go.git', { 'for': 'go', 'do': ':GoUpdateBinaries' }
 
 " Ruby Blocks are real
 Plug 'https://github.com/nelstrom/vim-textobj-rubyblock.git', { 'for': 'ruby' }
@@ -67,6 +67,8 @@ Plug 'https://github.com/Glench/Vim-Jinja2-Syntax.git'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
+
 " Only load this if running neovim
 " if has("nvim")
 "   " Deoplete
@@ -75,6 +77,8 @@ Plug 'junegunn/fzf.vim'
 call plug#end()
 
 colorscheme afterglow
+
+" set statusline+=\{…\}%3{codeium#GetStatusString()}
 
 " Javascript Syntax Checking with jshint
 " let g:syntastic_javascript_checkers = ['jshint']
@@ -302,3 +306,4 @@ let g:mkdp_preview_options = {
     \ }
 
 " set foldmethod=indent
+
