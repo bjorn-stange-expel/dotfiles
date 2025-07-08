@@ -78,7 +78,6 @@ call plug#end()
 
 colorscheme afterglow
 
-" set statusline+=\{…\}%3{codeium#GetStatusString()}
 
 " Javascript Syntax Checking with jshint
 " let g:syntastic_javascript_checkers = ['jshint']
@@ -307,3 +306,5 @@ let g:mkdp_preview_options = {
 
 " set foldmethod=indent
 
+" load ~/.config/nvim/lua/statusline.lua
+lua require('statusline')
