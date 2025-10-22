@@ -19,3 +19,4 @@ keybind = cmd+comma=text:\x02\x2c
 
 # 256 MB
 scrollback-limit = 268435456
+keybind = shift+enter=text:\x1b\r

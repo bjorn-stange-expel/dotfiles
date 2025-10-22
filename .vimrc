@@ -67,7 +67,15 @@ Plug 'https://github.com/Glench/Vim-Jinja2-Syntax.git'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
+" AI
+" Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
+
+Plug 'nvim-lua/plenary.nvim'
+Plug 'greggh/claude-code.nvim'
+" After installing, add this to your init.vim:
+
+Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
+Plug 'phelipetls/jsonpath.nvim', { 'branch': 'main' }
 
 " Only load this if running neovim
 " if has("nvim")
@@ -174,21 +182,16 @@ nmap <leader>s :Rg <C-r><C-w><CR>
 
 " git co-author lines
 nmap <leader>ga oCo-authored-by: Adam Glenn <adam.glenn@expel.io><esc>
-nmap <leader>gda oCo-authored-by: David Montoya <david.montoya@expel.io><esc>
 nmap <leader>gdo oCo-authored-by: Doug McCall <doug.mccall@expel.io><esc>
 nmap <leader>get oCo-authored-by: Ethan Miller <ethan.miller@expel.io><esc>
-nmap <leader>gi oCo-authored-by: Ismail Ahmad <ismail.ahmad@expel.com><esc>
-nmap <leader>gje oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
+nmap <leader>gj oCo-authored-by: Jesse Rhodes <jesse.rhodes@expel.io><esc>
 nmap <leader>gp oCo-authored-by: Peter Herndon <peter.herndon@expel.io><esc>
-nmap <leader>gr oCo-authored-by: Robert Kernick <robert.kernick@expel.com><esc>
+nmap <leader>gro oCo-authored-by: Robert Kernick <robert.kernick@expel.com><esc>
 nmap <leader>gcu oCo-authored-by: Char Custodio <char.custodio@expel.io><esc>
-nmap <leader>gjo oCo-authored-by: Jory Garrido <jory.garrido@expel.io><esc>
 nmap <leader>gk oCo-authored-by: Keith Grant <keith.grant@expel.io><esc>
-nmap <leader>gs oCo-authored-by: Sarah Keller <sarah.keller@expel.io><esc>
-nmap <leader>gt oCo-authored-by: Trevor Ackerman <trevor.ackerman@expel.io><esc>
-nmap <leader>gb oCo-authored-by: Brian Leung <brian.leung@expel.com><esc>
-nmap <leader>gjd oCo-authored-by: Juan Diego Bonilla <juandiego.bonilla@expel.com><esc>
-nmap <leader>gm oCo-authored-by: Mohamed Abdel Latif <mohamed.abdellatif@expel.com><esc>
+nmap <leader>gbl oCo-authored-by: Brian Leung <brian.leung@expel.com><esc>
+nmap <leader>gry oCo-authored-by: Ryan White <ryan.white@expel.com><esc>
+nmap <leader>gbf oCo-authored-by: Bryce Frazier <bryce.frazier@expel.com><esc>
 nmap <leader>map imig7GMC9ANK62<esc>
 
 nmap <leader>1 1gt
@@ -307,4 +310,7 @@ let g:mkdp_preview_options = {
 " set foldmethod=indent
 
 " load ~/.config/nvim/lua/statusline.lua
-lua require('statusline')
+" lua require('statusline')
+
+" load claude-code.nvim
+lua require('claude-code').setup()
