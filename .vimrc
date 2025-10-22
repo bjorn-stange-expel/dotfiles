@@ -69,10 +69,8 @@ Plug 'junegunn/fzf.vim'
 
 " AI
 " Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
-
 Plug 'nvim-lua/plenary.nvim'
 Plug 'greggh/claude-code.nvim'
-" After installing, add this to your init.vim:
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
 Plug 'phelipetls/jsonpath.nvim', { 'branch': 'main' }
