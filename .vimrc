@@ -4,7 +4,6 @@ if &compatible          " only if not set before:
 endif
 
 " Plugins
-
 call plug#begin('~/.vim/plugged')
 
 " Afterglow Theme
@@ -68,11 +67,12 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 " AI
-" Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
+Plug 'Exafunction/windsurf.vim', { 'branch': 'main' }
 Plug 'nvim-lua/plenary.nvim'
 Plug 'greggh/claude-code.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter', { 'branch': 'main' }
+Plug 'nvim-treesitter/nvim-treesitter-context', { 'branch': 'master' }
 Plug 'phelipetls/jsonpath.nvim', { 'branch': 'main' }
 
 " Only load this if running neovim
@@ -304,11 +304,3 @@ let g:mkdp_preview_options = {
     \ 'disable_filename': 0,
     \ 'toc': {}
     \ }
-
-" set foldmethod=indent
-
-" load ~/.config/nvim/lua/statusline.lua
-" lua require('statusline')
-
-" load claude-code.nvim
-lua require('claude-code').setup()
